@@ -1,0 +1,43 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['']">Therihpost</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['']">Home
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" [routerLink]="['parent']">Parent</a>
+        </li>
+        <li>
+          <a class="nav-link" [routerLink]="['parent/child']">Child</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Page Content -->
+<div class="container mt-5">
+  <!-- Heading Row -->
+  <div class="row align-items-center my-5 mt-5">
+    <div class="col-lg-12">
+      <h1 class="font-weight-light">Therichpost.com</h1>
+      Therichpost.com Therichpost.com Therichpost.com Therichpost.com
+      Therichpost.com Therichpost.com Therichpost.com Therichpost.com
+    </div>
+    <!-- /.col-lg-8 -->
+
+  </div>
+  <!-- /.row -->
+  <div class="row align-items-center my-5 mt-5">
+    <h2 class="font-weight-light">
+      <router-outlet></router-outlet>
+    </h2>
+  </div>
+
+</div>
