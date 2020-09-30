@@ -1,0 +1,4 @@
+<article class="post" id="post{{idx}}" *ngFor="let item of data | slice:0:3; let idx=index">
+  <app-article-header [item]="item" (delete)="doDelete($event)"></app-article-header>
+  <app-article-body [item]="item"></app-article-body>
+</article>

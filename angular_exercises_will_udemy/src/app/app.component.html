@@ -1,0 +1,271 @@
+    <!-- Header START -->
+    <header class="header">
+      <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav ">
+              <li><a href="http://blog.miniasp.com/">首頁</a></li>
+              <li><a href="http://blog.miniasp.com/archive.aspx">文章彙整</a></li>
+              <li><a href="http://blog.miniasp.com/contact.aspx">與我聯絡</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://blog.miniasp.com/Account/login.aspx">登入</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="title-wrapper">
+        <div class="container">
+
+          <img (click)="changeTitle($event)" [title]="title" [src]="imgurl" [attr.data-tile]="title" class="pull-left logo" alt="The Will Will Web">
+
+          <div class="pull-left">
+            <h1><a [href]="url">{{ title }}</a></h1>
+            <h3 [class.highlight]="counter % 2 == 0">記載著 Will 在網路世界的學習心得與技術分享 {{ counter }}</h3>
+          </div>
+
+          <div id="social-icons" class="pull-right social-icon">
+            <ng-container [ngSwitch]="counter % 2">
+              <ng-container *ngSwitchCase="0">
+
+                <a href="https://www.facebook.com/will.fans" title="Will 保哥的技術交流中心" target="_blank">
+                  <img src="/assets/images/facebook.png">
+                </a>
+                <a href="https://twitter.com/Will_Huang" title="@Will_Huang 保哥的推特" target="_blank">
+                  <img src="/assets/images/twitter.png">
+                </a>
+                <a href="https://plus.google.com/+WillHuang" title="Will Huang (保哥) on Google+" target="_blank">
+                  <img src="/assets/images/googleplus.png">
+                </a>
+              </ng-container>
+              <ng-container *ngSwitchCase="1">
+
+                <a href="http://www.plurk.com/willh" title="★★★ Will 保哥的噗浪 ★★★" target="_blank">
+                  <img src="/assets/images/plurk.png">
+                </a>
+                <a href="http://www.weibo.com/cnwill" title="Will 保哥的微博" target="_blank">
+                  <img src="/assets/images/weibo.png">
+                </a>
+                <a href="http://blog.miniasp.com/syndication.axd" title="RSS 訂閱" target="_blank">
+                  <img src="/assets/images/rss.png">
+                </a>
+              </ng-container>
+              <ng-container  *ngSwitchDefault>N/A</ng-container>
+            </ng-container>
+
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <!-- Header END -->
+
+    <div>
+      <!--output '2.718'-->
+      <p>e (no formatting): {{e | number}}</p>
+
+      <!--output '002.71828'-->
+      <p>e (3.1-5): {{e | number:'3.1-5'}}</p>
+
+      <!--output '0,002.71828'-->
+      <p>e (4.5-5): {{e | number:'4.5-5'}}</p>
+
+      <!--output '0 002,71828'-->
+      <p>e (french): {{e | number:'4.5-5':'fr'}}</p>
+
+      <!--output '3.14'-->
+      <p>pi (no formatting): {{pi | number}}</p>
+
+      <!--output '003.14'-->
+      <p>pi (3.1-5): {{pi | number:'3.1-5'}}</p>
+
+      <!--output '003.14000'-->
+      <p>pi (3.5-5): {{pi | number:'3.5-5'}}</p>
+
+      <!--output '-3' / unlike '-2' by Math.round()-->
+      <p>-2.5 (1.0-0): {{-2.5 | number:'1.0-0'}}</p>
+    </div>
+
+    <!-- CONTAINER START-->
+    <section class="container">
+      <div class="row">
+        <section class="col-md-8 content-wrapper">
+          <div id="ctl00_cphBody_divError"></div>
+          <div id="ctl00_cphBody_PostList1_posts" class="posts">
+
+            <!-- Article START-->
+            <app-article-list></app-article-list>
+            <!-- Article END-->
+
+          </div>
+        </section>
+
+
+        <!-- Aside START -->
+        <aside class="col-md-4 sidebar-wrapper">
+          <div id="widgetzone_be_WIDGET_ZONE" class="widgetzone">
+
+            <!-- Search START-->
+            <div class="widget search">
+              <div class="widget-content">
+                  <div id="searchbox">
+                    <input type="text" #tKeyword [(ngModel)]="keyword" placeholder="請輸入搜尋關鍵字" accesskey="s">
+                    <input type="button" value="搜尋" id="searchbutton">
+                    <br> test: {{ keyword }} {{ tKeyword.value.length }}
+                  </div>
+              </div>
+            </div>
+            <!-- Search END -->
+
+            <!-- Calendar START -->
+            <div class="widget calendar">
+              <h4 class="widget-header">
+                  文章日曆
+                  <span class="pull-right"></span>
+              </h4>
+              <div class="widget-content">
+                <div style="text-align: center">
+                  <div id="calendarContainer">
+                    <table class="calendar" summary="" style="border-collapse:collapse;">
+                      <tbody>
+                        <tr>
+                          <td><a href="#">&lt;&lt;</a>&nbsp;&nbsp;</td>
+                          <td style="text-align:center;width:100px">五月 2016</td>
+                          <td align="right">&nbsp;&nbsp;&gt;&gt;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="calendar" cellspacing="0" cellpadding="2" summary="Post calendar" title="Calendar" style="border-width:0px;border-collapse:collapse;">
+                      <tbody>
+                        <tr>
+                          <th align="center" abbr="星期一" scope="col">週一</th>
+                          <th align="center" abbr="星期二" scope="col">週二</th>
+                          <th align="center" abbr="星期三" scope="col">週三</th>
+                          <th align="center" abbr="星期四" scope="col">週四</th>
+                          <th align="center" abbr="星期五" scope="col">週五</th>
+                          <th align="center" abbr="星期六" scope="col">週六</th>
+                          <th align="center" abbr="星期日" scope="col">週日</th>
+                        </tr>
+                        <tr>
+                          <td class="other" align="center" style="width:14%;">25</td>
+                          <td class="other" align="center" style="width:14%;">26</td>
+                          <td class="other" align="center" style="width:14%;">27</td>
+                          <td class="other" align="center" style="width:14%;">28</td>
+                          <td class="other" align="center" style="width:14%;">29</td>
+                          <td class="other" align="center" style="width:14%;"><a href="http://blog.miniasp.com/2016/04/30/default.aspx" class="exist">30</a></td>
+                          <td class="weekend" align="center" style="width:14%;">1</td>
+                        </tr>
+                        <tr>
+                          <td align="center" style="width:14%;">2</td>
+                          <td align="center" style="width:14%;">3</td>
+                          <td align="center" id="today" style="width:14%;">4</td>
+                          <td align="center" style="width:14%;">5</td>
+                          <td align="center" style="width:14%;">6</td>
+                          <td class="weekend" align="center" style="width:14%;">7</td>
+                          <td class="weekend" align="center" style="width:14%;">8</td>
+                        </tr>
+                        <tr>
+                          <td align="center" style="width:14%;">9</td>
+                          <td align="center" style="width:14%;">10</td>
+                          <td align="center" style="width:14%;">11</td>
+                          <td align="center" style="width:14%;">12</td>
+                          <td align="center" style="width:14%;">13</td>
+                          <td class="weekend" align="center" style="width:14%;">14</td>
+                          <td class="weekend" align="center" style="width:14%;">15</td>
+                        </tr>
+                        <tr>
+                          <td align="center" style="width:14%;">16</td>
+                          <td align="center" style="width:14%;">17</td>
+                          <td align="center" style="width:14%;">18</td>
+                          <td align="center" style="width:14%;">19</td>
+                          <td align="center" style="width:14%;">20</td>
+                          <td class="weekend" align="center" style="width:14%;">21</td>
+                          <td class="weekend" align="center" style="width:14%;">22</td>
+                        </tr>
+                        <tr>
+                          <td align="center" style="width:14%;">23</td>
+                          <td align="center" style="width:14%;">24</td>
+                          <td align="center" style="width:14%;">25</td>
+                          <td align="center" style="width:14%;">26</td>
+                          <td align="center" style="width:14%;">27</td>
+                          <td class="weekend" align="center" style="width:14%;">28</td>
+                          <td class="weekend" align="center" style="width:14%;">29</td>
+                        </tr>
+                        <tr>
+                          <td align="center" style="width:14%;">30</td>
+                          <td align="center" style="width:14%;">31</td>
+                          <td class="other" align="center" style="width:14%;">1</td>
+                          <td class="other" align="center" style="width:14%;">2</td>
+                          <td class="other" align="center" style="width:14%;">3</td>
+                          <td class="other" align="center" style="width:14%;">4</td>
+                          <td class="other" align="center" style="width:14%;">5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <br>
+                  <a href="http://blog.miniasp.com/calendar/default.aspx">View posts in large calendar</a>
+                </div>
+              </div>
+            </div>
+            <!-- Calendar END -->
+
+            <!-- CategoryList START -->
+            <div class="widget categorylist">
+              <h4 class="widget-header">
+                  文章分類
+                  <span class="pull-right"></span>
+              </h4>
+              <div class="widget-content">
+                <ul id="categorylist">
+                  <li>
+                    <a href="http://blog.miniasp.com/category/feed/Net.aspx" rel="nofollow"><img src="/assets/images/rssButton.png" alt="RSS feed for .Net" class="rssButton"></a><a href="http://blog.miniasp.com/category/Net.aspx"
+                      title="分類: .Net">.Net (199)</a></li>
+                  <li>
+                    <a href="http://blog.miniasp.com/category/feed/Accessibility.aspx" rel="nofollow"><img src="/assets/images/rssButton.png" alt="RSS feed for Accessibility" class="rssButton"></a><a href="http://blog.miniasp.com/category/Accessibility.aspx"
+                      title="分類: Accessibility">Accessibility (3)</a></li>
+                  <li>
+                    <a href="http://blog.miniasp.com/category/feed/AngularJS.aspx" rel="nofollow"><img src="/assets/images/rssButton.png" alt="RSS feed for AngularJS" class="rssButton"></a><a href="http://blog.miniasp.com/category/AngularJS.aspx"
+                      title="分類: AngularJS">AngularJS (7)</a></li>
+                  <li>
+                    <a href="http://blog.miniasp.com/category/feed/ASPNET.aspx" rel="nofollow"><img src="/assets/images/rssButton.png" alt="RSS feed for ASP.NET" class="rssButton"></a><a href="http://blog.miniasp.com/category/ASPNET.aspx"
+                      title="分類: ASP.NET">ASP.NET (217)</a></li>
+                </ul>
+
+              </div>
+            </div>
+            <!-- CategoryList END -->
+
+            <!-- MVP START -->
+            <div class="widget textbox">
+              <h4 class="widget-header">
+                  微軟最有價值專家
+                  <span class="pull-right"></span>
+              </h4>
+              <div class="widget-content">
+                <p>
+                  <a title="Will 保哥於 2008 年 4 月獲得微軟技術社群暨最有價值專家 第七屆第三回合微軟「最有價值專家」(Most Valuable Professional, MVP)，主要得獎領域是在 ASP/ASP.NET 技術與線上社群部分。"
+                    href="http://blog.miniasp.com/post.aspx?id=92fd882f-78b7-4791-94f7-df5742d41220"><img src="/assets/images/MVP_FullColor_ForBlog.jpg" alt="Will 保哥於 2008 年 4 月獲得微軟技術社群暨最有價值專家 第七屆第三回合微軟「最有價值專家」(Most Valuable Professional, MVP)，主要得獎領域是在 ASP/ASP.NET 技術與線上社群部分。"
+                      border="0"></a>
+                </p>
+              </div>
+            </div>
+            <!-- MVP END -->
+
+          </div>
+        </aside>
+        <!-- Aside END -->
+      </div>
+    </section>
+    <!-- CONTAINER END -->
+
+
+<app-footer></app-footer>
