@@ -1,0 +1,35 @@
+<!-- 官網例子, 書上的程式碼是舊版本, 會出問題, 所以用官網的例子修改舊有的程式碼
+  https://www.bookstack.cn/read/ng.ant.design-v8.0/1f1f93b91d138232.md#Dropdown%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95
+
+    <a nz-dropdown [nzDropdownMenu]="menu">
+  Hover me
+  <i nz-icon nzType="down"></i>
+</a>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li nz-menu-item>1st menu item</li>
+    <li nz-menu-item>2nd menu item</li>
+    <li nz-menu-item>3rd menu item</li>
+  </ul>
+</nz-dropdown-menu> -->
+
+<div style="margin: 15px">
+
+  <h2>自定义结构型指令 appIf</h2>
+
+  <a nz-dropdown [nzDropdownMenu]="menu">
+    Hover me
+    <i nz-icon nzType="down"></i>
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <button nz-button nz-dropdown nzType="primary">选择性别</button>
+    <ul nz-menu>
+      <li (click)="changeShow('man')" nz-menu-item>男</li>
+      <li (click)="changeShow('woman')" nz-menu-item>女</li>
+    </ul>
+  </nz-dropdown-menu>
+
+  <p *ngIf="isMan">性别：男</p>
+  <p *ngIf="!isMan">性别：女</p>
+
+</div>
