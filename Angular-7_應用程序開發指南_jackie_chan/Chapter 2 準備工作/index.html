@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>hello, world</title>
+        <script src="/node_modules/systemjs/dist/system.js"></script>
+        <!-- <script src="index.js"></script> -->
+        <script>
+            (function() {
+                System.config({
+                    packages: {
+                        '/': {
+                            defaultExtension: 'js'
+                        }
+                    }
+                })
+            })();
+
+            System.import('index.js');
+        </script>
+    </head>
+    <body>
+        hello, world
+    </body>
+</html>

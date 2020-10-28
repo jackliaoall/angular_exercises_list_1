@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "./",
+        "allowJs": true,
+        "target": "es2015",
+        "sourceMap": true,
+        "module": "amd",
+        "removeComments": true
+    },
+    "include": ["**/*"],
+    "exclude": ["./"]
+}

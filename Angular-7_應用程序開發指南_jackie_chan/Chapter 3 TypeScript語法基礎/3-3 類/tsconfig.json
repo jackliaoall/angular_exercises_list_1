@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,       // 生成映射文件
+        "module": "commonjs",    // 將TypeScript模組編譯成CommonJS模組
+        "strictNullChecks": true, // 阻止null和undefined被給值給其他類型的變量
+        "target": "es5"
+    }
+}
