@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Template</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.slim.js"></script>
+</head>
+<body>
+  <div id="target" class="animated jello">
+    <h1>
+      Jack Test!
+    </h1>
+
+    <button id="button">
+      套用jello特效
+    </button>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+    $('#button').click(function(){
+      $('#state').html('特效中...');
+      $('#target').addClass('animated jello');
+      $('#button').attr('disabled', true);
+    });
+
+    $('#target').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $('#target').removeClass('animated jello');
+      $('#state').html('特效結束');
+      $('#button').attr('disabled', false);
+    });
+});
+  </script>
+</body>
+</html>
