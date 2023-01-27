@@ -1,0 +1,33 @@
+<h4>Test WebRTC</h4>
+<!-- <section>
+  <label for="audioSelect">選擇Audio來源:</label>
+  <select id="audioSelect"
+    (change)="ChangeAudioSource($event.target.value)">
+    <option *ngFor="let item of audioOption" [value]="item.value">
+      {{item.text}}
+    </option>
+  </select>
+</section>
+
+<section>
+  <label for="videoSelect">選擇Video來源:</label>
+  <select id="videoSelect"
+  (change)="ChangeVideoSource($event.target.value)">
+    <option *ngFor="let item of videoOption" [value]="item.value" >
+      {{item.text}}
+    </option>
+  </select>
+</section> -->
+
+<video id="video" autoplay></video>
+
+<canvas class="none" id="canvasArea"></canvas>
+<img [src]="imgUrl" class="none">
+
+<!-- <button class="stop-button" id="stopbtn" type="button"
+(click)="stopBtn()">
+  Stop
+</button> -->
+<p><button id="screenshot-button" (click)="screenshotBtn()" type="button">
+  Take screenshot
+</button></p>
